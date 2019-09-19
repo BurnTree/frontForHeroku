@@ -1,74 +1,76 @@
-//package com.holic.www.backend.entity;
-//
-//import javax.persistence.Basic;
-//import javax.persistence.Column;
-//import javax.persistence.Entity;
-//import javax.persistence.Id;
-//import java.util.Arrays;
-//import java.util.Objects;
-//
-//@Entity
-//public class Goods {
-//    private int id;
-//    private String name;
-//    private Object description;
-//    private byte[] image;
-//
-//    @Id
-//    @Column(name = "id", nullable = false)
-//    public int getId() {
-//        return id;
-//    }
-//
-//    public void setId(int id) {
-//        this.id = id;
-//    }
-//
+package com.holic.www.backend.entity;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
+import com.vladmihalcea.hibernate.type.json.JsonNodeStringType;
+import com.vladmihalcea.hibernate.type.json.JsonStringType;
+
+import javax.persistence.*;
+import java.util.List;
+import java.util.Objects;
+
+@Entity
+public class Goods {
+    private int idgoods;
+    private String name;
+    private String description;
+
+//    @ManyToOne(targetEntity = Title.class)
+//    private int id_title;
+
+    @Id
+    @Column(name = "idgoods", nullable = false)
+    public int getIdgoods() {
+        return idgoods;
+    }
+
+    public void setIdgoods(int idgoods) {
+        this.idgoods = idgoods;
+    }
+
+    @Basic
+    @Column(name = "name", nullable = true, length = 45)
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Basic
+    @Column(name = "description", nullable = true)
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
 //    @Basic
-//    @Column(name = "name", nullable = false, length = 45)
-//    public String getName() {
-//        return name;
+//    @Column(name = "id_title", nullable = true)
+//    public int getId_title() {
+//        return id_title;
 //    }
 //
-//    public void setName(String name) {
-//        this.name = name;
+//    public void setId_title(int id_title) {
+//        this.id_title = id_title;
 //    }
-//
-//    @Basic
-//    @Column(name = "description", nullable = false)
-//    public Object getDescription() {
-//        return description;
-//    }
-//
-//    public void setDescription(Object description) {
-//        this.description = description;
-//    }
-//
-//    @Basic
-//    @Column(name = "image", nullable = true)
-//    public byte[] getImage() {
-//        return image;
-//    }
-//
-//    public void setImage(byte[] image) {
-//        this.image = image;
-//    }
-//
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//        Goods goods = (Goods) o;
-//        return id == goods.id &&
-//                Objects.equals(name, goods.name) &&
-//                Objects.equals(description, goods.description) &&
-//                Arrays.equals(image, goods.image);
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        int result = Objects.hash(id, name, description);
-//        result = 31 * result + Arrays.hashCode(image);
-//        return result;
-//    }
-//}
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Goods goods = (Goods) o;
+        return idgoods == goods.idgoods &&
+                Objects.equals(name, goods.name);
+//        &&
+//                Objects.equals(description, goods.description);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(idgoods, name/*, description*/);
+    }
+}

@@ -8,27 +8,27 @@ import java.util.Objects;
 
 @Entity
 public class Category {
-    private int id;
-    private String title;
+    private int idcategory;
+    private String name;
 
     @Id
-    @Column(name = "id", nullable = false)
-    public int getId() {
-        return id;
+    @Column(name = "idcategory", nullable = false)
+    public int getIdcategory() {
+        return idcategory;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdcategory(int idcategory) {
+        this.idcategory = idcategory;
     }
 
     @Basic
-    @Column(name = "title", nullable = true, length = 100)
-    public String getTitle() {
-        return title;
+    @Column(name = "name", nullable = true, length = 45)
+    public String getName() {
+        return name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
@@ -36,12 +36,12 @@ public class Category {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Category category = (Category) o;
-        return id == category.id &&
-                Objects.equals(title, category.title);
+        return idcategory == category.idcategory &&
+                Objects.equals(name, category.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title);
+        return Objects.hash(idcategory, name);
     }
 }

@@ -5,24 +5,24 @@ import java.util.Objects;
 
 @Entity
 public class Title {
-    private int id;
+    private int idtitle;
     private String name;
 
     @ManyToOne(targetEntity = Category.class)
-    private Category category_id;
+    private int id_category;
 
     @Id
-    @Column(name = "id", nullable = false)
-    public int getId() {
-        return id;
+    @Column(name = "idtitle", nullable = false)
+    public int getIdtitle() {
+        return idtitle;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdtitle(int idtitle) {
+        this.idtitle = idtitle;
     }
 
     @Basic
-    @Column(name = "name", nullable = false, length = 45)
+    @Column(name = "name", nullable = true, length = 45)
     public String getName() {
         return name;
     }
@@ -31,12 +31,14 @@ public class Title {
         this.name = name;
     }
 
-    public Category getCategory_id() {
-        return category_id;
+    @Basic
+    @Column(name = "id_category", nullable = true, length = 45)
+    public int getId_category() {
+        return id_category;
     }
 
-    public void setCategory_id(Category category_id) {
-        this.category_id = category_id;
+    public void setId_category(int id_category) {
+        this.id_category = id_category;
     }
 
     @Override
@@ -44,13 +46,12 @@ public class Title {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Title title = (Title) o;
-        return id == title.id &&
-                Objects.equals(name, title.name) &&
-                Objects.equals(category_id, title.category_id);
+        return idtitle == title.idtitle &&
+                Objects.equals(name, title.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name);
+        return Objects.hash(idtitle, name);
     }
 }
