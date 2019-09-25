@@ -1,30 +1,35 @@
 package com.holic.www.backend.entity;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import com.vladmihalcea.hibernate.type.json.JsonNodeStringType;
 import com.vladmihalcea.hibernate.type.json.JsonStringType;
 
 import javax.persistence.*;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
+import org.json.*;
 
 @Entity
 public class Goods {
-    private int idgoods;
+    private long idgoods;
     private String name;
     private String description;
+    //private JsonStringType  description;
 
-//    @ManyToOne(targetEntity = Title.class)
-//    private int id_title;
+    @ManyToOne(targetEntity = Title.class)
+    private long idtitle;
 
     @Id
     @Column(name = "idgoods", nullable = false)
-    public int getIdgoods() {
+    public long getIdgoods() {
         return idgoods;
     }
 
-    public void setIdgoods(int idgoods) {
+    public void setIdgoods(long idgoods) {
         this.idgoods = idgoods;
     }
 
@@ -39,24 +44,24 @@ public class Goods {
     }
 
     @Basic
-    @Column(name = "description", nullable = true)
-    public String getDescription() {
+    @Column(name = "description",columnDefinition = "json", nullable = true)
+    public String  getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(String  description) {
         this.description = description;
     }
 
-//    @Basic
-//    @Column(name = "id_title", nullable = true)
-//    public int getId_title() {
-//        return id_title;
-//    }
-//
-//    public void setId_title(int id_title) {
-//        this.id_title = id_title;
-//    }
+    @Basic
+    @Column(name = "idtitle", nullable = true)
+    public long getIdtitle() {
+        return idtitle;
+    }
+
+    public void setIdtitle(long idtitle) {
+        this.idtitle = idtitle;
+    }
 
     @Override
     public boolean equals(Object o) {

@@ -5,19 +5,17 @@ import java.util.Objects;
 
 @Entity
 public class Title {
-    private int idtitle;
+    private long idtitle;
     private String name;
-
-    @ManyToOne(targetEntity = Category.class)
-    private int id_category;
+    private long idcategory;
 
     @Id
     @Column(name = "idtitle", nullable = false)
-    public int getIdtitle() {
+    public long getIdtitle() {
         return idtitle;
     }
 
-    public void setIdtitle(int idtitle) {
+    public void setIdtitle(long idtitle) {
         this.idtitle = idtitle;
     }
 
@@ -32,13 +30,13 @@ public class Title {
     }
 
     @Basic
-    @Column(name = "id_category", nullable = true, length = 45)
-    public int getId_category() {
-        return id_category;
+    @Column(name = "idcategory", nullable = true, length = 45)
+    public long getIdcategory() {
+        return idcategory;
     }
 
-    public void setId_category(int id_category) {
-        this.id_category = id_category;
+    public void setIdcategory(long idcategory) {
+        this.idcategory = idcategory;
     }
 
     @Override

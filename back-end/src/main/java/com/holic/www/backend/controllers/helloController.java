@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping(path = "/api")
 public class helloController {
 
     public CategoryService categoryService;
@@ -24,22 +25,8 @@ public class helloController {
 
     }
 
-    @GetMapping(value = "test")
+    @GetMapping(value = "/test")
     public String findProjectById() {
         return "asd";
     }
-
-    @GetMapping(value = "data")
-    public Iterable<Category> getall() {
-        return categoryService.getAll();
-    }
-
-    @GetMapping(value = "title")
-    public Iterable<Title> getTitle(){return titleService.getAll();}
-
-    @GetMapping(value = "good")
-    public Iterable<Goods> getallGoods(){
-        return goodsService.getAll();
-    }
-
 }

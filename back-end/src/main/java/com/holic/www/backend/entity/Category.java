@@ -8,16 +8,16 @@ import java.util.Objects;
 
 @Entity
 public class Category {
-    private int idcategory;
+    private long idcategory;
     private String name;
 
     @Id
     @Column(name = "idcategory", nullable = false)
-    public int getIdcategory() {
+    public long getIdcategory() {
         return idcategory;
     }
 
-    public void setIdcategory(int idcategory) {
+    public void setIdcategory(long idcategory) {
         this.idcategory = idcategory;
     }
 
