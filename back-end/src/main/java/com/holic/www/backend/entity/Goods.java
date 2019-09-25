@@ -18,10 +18,12 @@ public class Goods {
     private long idgoods;
     private String name;
     private String description;
-    //private JsonStringType  description;
 
     @ManyToOne(targetEntity = Title.class)
     private long idtitle;
+
+    private String shDes;
+    private String photo;
 
     @Id
     @Column(name = "idgoods", nullable = false)
@@ -61,6 +63,26 @@ public class Goods {
 
     public void setIdtitle(long idtitle) {
         this.idtitle = idtitle;
+    }
+
+    @Basic
+    @Column(name = "short", nullable = true)
+    public String getShDes() {
+        return shDes;
+    }
+
+    public void setShDes(String shDes) {
+        this.shDes = shDes;
+    }
+
+    @Basic
+    @Column(name = "photo", nullable = true)
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
     @Override
