@@ -1,0 +1,9 @@
+<app-header></app-header>
+<div class="h3 text-center">Сертификаты</div>
+<div class="row">
+  <div *ngFor="let sert of catalog">
+    <div class="col">
+      <app-sertificate-icon [serti]="sert"></app-sertificate-icon>
+    </div>
+  </div>
+</div>

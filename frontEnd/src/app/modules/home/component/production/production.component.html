@@ -1,0 +1,10 @@
+<div class="text-center">
+<h2>Продукция</h2>
+</div>
+<div class="row">
+  <div *ngFor="let pun of punkts">
+    <div class="col">
+      <app-product [item]="pun"></app-product>
+    </div>
+  </div>
+</div>

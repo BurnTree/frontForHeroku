@@ -1,0 +1,9 @@
+<ul class="m-2">
+  <li><a href="{{lang}}" class="text-black-50">главная </a></li>
+  <li *ngFor="let r of routeMenu" class="text-black-50">
+    >
+    <a href="{{lang}}/{{r.url}}" class="text-black-50">
+      {{r.name}}
+    </a>
+  </li>
+</ul>
