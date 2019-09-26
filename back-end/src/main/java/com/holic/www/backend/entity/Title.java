@@ -8,7 +8,7 @@ public class Title {
     private long idtitle;
     private String name;
     private long idcategory;
-
+    private String photo;
     @Id
     @Column(name = "idtitle", nullable = false)
     public long getIdtitle() {
@@ -37,6 +37,16 @@ public class Title {
 
     public void setIdcategory(long idcategory) {
         this.idcategory = idcategory;
+    }
+
+    @Basic
+    @Column(name = "photo", nullable = true)
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
     @Override

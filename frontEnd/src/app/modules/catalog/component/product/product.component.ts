@@ -10,7 +10,7 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class ProductComponent implements OnInit {
   @Input()
-  public item: Item = {id: 12, name: 'MyRule', punkt: 2, podpunkt: 3};
+  public item: Item;
   url: string;
   lang: string;
   constructor(public routeService: LocalRouteService,

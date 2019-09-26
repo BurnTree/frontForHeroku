@@ -3,6 +3,7 @@ export class Item {
   name: string;
   punkt: number;
   podpunkt: number;
+  img: string;
 }
 export class Punkt {
   name: string;

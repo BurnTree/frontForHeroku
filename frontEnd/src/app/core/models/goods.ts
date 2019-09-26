@@ -3,6 +3,8 @@ export class Goods {
   public name: string;
   public idtitle: number;
   public description: string;
+  public shDes: string;
+  public photo: string;
 }
 
 export class DataGoods {

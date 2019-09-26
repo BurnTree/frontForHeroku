@@ -1,0 +1,104 @@
+<app-header></app-header>
+<div class="h2 text-center">Отправьте нам информацию или что нить еще</div>
+<form class="p-4" [formGroup]="comForm" (ngSubmit)="onSubmit()">
+  <div>
+    <div class="row">
+      <div class="col">
+        <label>
+          First Name:
+        </label>
+        <br>
+        <input type="text" formControlName="fName">
+      </div>
+      <div class="col">
+        <label>
+          Second Name:
+        </label>
+        <br>
+        <input type="text" formControlName="sName">
+      </div>
+    </div>
+    <div class="alert alert-danger p-1 m-auto"
+         *ngIf="(comForm.controls['fName'].invalid && comForm.controls['fName'].touched) ||
+           (comForm.controls['sName'].invalid && comForm.controls['sName'].touched)
+">
+      <div *ngIf="comForm.controls['fName'].errors['required']">
+        Empty First Name
+      </div>
+      <div *ngIf="comForm.controls['fName'].errors['minlength'] || comForm.controls['sName'].errors['minlength']">
+        Minimum length = 3
+      </div>
+      <div *ngIf="comForm.controls['fName'].errors['maxlength'] || comForm.controls['sName'].errors['maxlength']">
+        big lenght
+      </div>
+      <div *ngIf="comForm.controls['sName'].errors['required']">
+        Empty Second Name
+      </div>
+    </div>
+    <div>
+      <label>
+        Phone:
+      </label>
+      <br>
+      <input type="text" size="51" formControlName="phone">
+    </div>
+    <div class="alert alert-danger p-1 m-auto"
+         *ngIf="comForm.controls['phone'].invalid && comForm.controls['phone'].touched
+">
+      <div *ngIf="comForm.controls['phone'].errors['required']">
+        Empty Name
+      </div>
+      <div *ngIf="comForm.controls['phone'].errors['minlength']">
+        Minimum length = 3
+      </div>
+      <div *ngIf="comForm.controls['phone'].errors['maxlength']">
+        big lenght
+      </div>
+      <div *ngIf="comForm.controls['phone'].errors['pattern']">
+        Incorrect phone
+      </div>
+    </div>
+    <div>
+      <label>
+        Gmail:
+      </label>
+      <br>
+      <input type="text" size="51" formControlName="gmail">
+    </div>
+    <div class="alert alert-danger p-1 m-auto" *ngIf="comForm.controls['gmail'].invalid && comForm.controls['gmail'].touched">
+      <div *ngIf="comForm.controls['gmail'].errors['required']">
+        Empty Name
+      </div>
+      <div *ngIf="comForm.controls['gmail'].errors['minlength']">
+        Minimum length = 3
+      </div>
+      <div *ngIf="comForm.controls['gmail'].errors['maxlength']">
+        big lenght
+      </div>
+      <div *ngIf="comForm.controls['gmail'].errors['email']">
+        Incorrect email
+      </div>
+    </div>
+    <div>
+      <label>
+        Comment:
+      </label>
+      <br>
+      <textarea type="text" cols="52" formControlName="comment"></textarea>
+    </div>
+    <div class="alert alert-danger p-1 m-auto" *ngIf="comForm.controls['comment'].invalid && comForm.controls['comment'].touched">
+      <div *ngIf="comForm.controls['comment'].errors['required']">
+        Empty Name
+      </div>
+      <div *ngIf="comForm.controls['comment'].errors['minlength']">
+        Minimum length = 3
+      </div>
+      <div *ngIf="comForm.controls['comment'].errors['maxlength']">
+        Maximum length = 15
+      </div>
+    </div>
+    <div class="text-right mr-5 mt-2">
+      <button type="submit" class="btn btn-dark" [disabled]="!comForm.valid">Submit</button>
+    </div>
+  </div>
+</form>

@@ -14,7 +14,11 @@ export class CategoryService {
   }
 
   public getAllCategory(): Observable<Category[]> {
-    return this.http.get<Category[]>(this.global.backend + '/api/category');
+    return this.http.get<Category[]>(this.global.backend + '/api/category/all');
+  }
+
+  public getForNav(): Observable<Category[]> {
+    return this.http.get<Category[]>(this.global.backend + '/api/category/all');
   }
 
   public getCtgById(id: number): Observable<Category> {

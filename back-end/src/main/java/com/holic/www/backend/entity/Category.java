@@ -10,6 +10,7 @@ import java.util.Objects;
 public class Category {
     private long idcategory;
     private String name;
+    private String photo;
 
     @Id
     @Column(name = "idcategory", nullable = false)
@@ -29,6 +30,16 @@ public class Category {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Basic
+    @Column(name = "photo", nullable = true)
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
     @Override

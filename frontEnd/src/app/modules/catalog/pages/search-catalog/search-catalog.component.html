@@ -1,10 +1,13 @@
 <app-header></app-header>
 <app-route-menu [routeMenu]="routeMenu"></app-route-menu>
 <div class="h1 text-center">Результаты поиска</div>
-<div class="h3 text-center">Найдено ххх результатов для запроса {{txtSearch}}</div>
-<form class="form-inline">
+<div class="h3 text-center">Найдено {{products.length}} результатов для запроса {{txtSearch}}</div>
+<form class="form-inline mx-5 px-5" (ngSubmit)="sbmSearch()">
   <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search"
-         aria-label="Search">
+         aria-label="Search"
+         [(ngModel)]="seaAria"
+         (ngModelChange)="seaAria = $event"
+         [ngModelOptions]="{standalone: true}">
 </form>
 <div class="row">
   <div *ngFor="let product of products">

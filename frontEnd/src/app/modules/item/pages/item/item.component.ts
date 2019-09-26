@@ -12,6 +12,8 @@ export class ItemComponent implements OnInit {
 
   product: Goods;
   table: DataGoods[];
+  image: any;
+  imgUrl: string;
 
   constructor(
     private goodsService: GoodsService,
@@ -25,6 +27,7 @@ export class ItemComponent implements OnInit {
       id = params.id;
       this.goodsService.getGoodsById(id).subscribe(goods => {
         this.product = goods;
+        this.imgUrl = 'assets/resource/images/goods/' + this.product.photo;
       });
       this.goodsService.getData(id).subscribe(data => this.table = data);
     });

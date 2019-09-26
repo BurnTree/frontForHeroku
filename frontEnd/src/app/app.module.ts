@@ -22,13 +22,15 @@ import { CatalogPodPunktComponent } from './modules/catalog/pages/catalog-pod-pu
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { ScrollTopBtnComponent } from './core/scroll-top-btn/scroll-top-btn.component';
 import { ContactComponent } from './modules/contact/contact.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RouteMenuComponent } from './core/route-menu/route-menu.component';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import {Globals} from './core/models/global';
 import { CatalogSertificatesComponent } from './modules/sertificates/pages/catalog-sertificates/catalog-sertificates.component';
 import { ItemSertificateComponent } from './modules/sertificates/pages/item-sertificate/item-sertificate.component';
 import { SertificateIconComponent } from './modules/sertificates/component/sertificate-icon/sertificate-icon.component';
+import { CommunicationComponent } from './modules/item/component/communication/communication.component';
+import { FilterPipe } from './core/service/filter.pipe';
 
 
 @NgModule({
@@ -53,7 +55,9 @@ import { SertificateIconComponent } from './modules/sertificates/component/serti
     RouteMenuComponent,
     CatalogSertificatesComponent,
     ItemSertificateComponent,
-    SertificateIconComponent
+    SertificateIconComponent,
+    CommunicationComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
@@ -61,7 +65,8 @@ import { SertificateIconComponent } from './modules/sertificates/component/serti
     AppRoutingModule,
     RouterModule,
     FormsModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    ReactiveFormsModule
   ],
   providers: [Globals],
   bootstrap: [AppComponent]

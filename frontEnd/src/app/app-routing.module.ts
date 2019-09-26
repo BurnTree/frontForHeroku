@@ -10,6 +10,7 @@ import {SearchCatalogComponent} from './modules/catalog/pages/search-catalog/sea
 import {ContactComponent} from './modules/contact/contact.component';
 import {CatalogSertificatesComponent} from './modules/sertificates/pages/catalog-sertificates/catalog-sertificates.component';
 import {ItemSertificateComponent} from './modules/sertificates/pages/item-sertificate/item-sertificate.component';
+import {CommunicationComponent} from './modules/item/component/communication/communication.component';
 
 const appRoutes: Routes = [
   {path: ':lang/product/:p/:pp/:id', component: ItemComponent, pathMatch: 'full'},
@@ -22,6 +23,7 @@ const appRoutes: Routes = [
   {path: '', redirectTo: '/ru', pathMatch: 'full'},
   {path: ':lang/sertificates', component: CatalogSertificatesComponent, pathMatch: 'full'},
   {path: ':lang/sertificates/:id', component: ItemSertificateComponent, pathMatch: 'full'},
+  {path: ':lang/communication', component: CommunicationComponent, pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent, pathMatch: 'full'}
 ];
 

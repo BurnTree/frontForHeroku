@@ -15,7 +15,7 @@ export class GoodsService {
   }
 
   public getAllGoods(): Observable<Goods[]> {
-    return this.http.get<Goods[]>(this.global.backend + '/api/goods');
+    return this.http.get<Goods[]>(this.global.backend + '/api/goods/all');
   }
 
   public getGoodsById(id: number): Observable<Goods> {
@@ -29,5 +29,9 @@ export class GoodsService {
 
   public getData(id: number): Observable<DataGoods[]> {
     return this.http.get<DataGoods[]>(this.global.backend + '/api/goods/data/' + id);
+  }
+
+  public getImage(id: number): Observable<any> {
+    return this.http.get<any>(this.global.backend + 'api/goods/' + id + '/image');
   }
 }
