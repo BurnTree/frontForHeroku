@@ -34,8 +34,8 @@
           Продукция
         </a>
         <div class="dropdown-menu m-l-150" aria-labelledby="navbarDropdown">
-          <div *ngFor="let prod of products">
-            <a class="dropdown-item" href="/{{lang}}/product/{{prod.punkt}}">{{prod.name}}</a>
+          <div *ngFor="let prod of categories">
+            <a class="dropdown-item" href="/{{lang}}/product/{{prod.idcategory}}">{{prod.name}}</a>
           </div>
         </div>
       </li>
@@ -43,7 +43,7 @@
       <li class=""><a class="nav-link text-secondary" href="/{{lang}}/contact">Контакты</a></li>
     </ul>
 
-    <div class="dropdown-menu" *ngFor="let prod of products">
+    <div class="dropdown-menu" *ngFor="let prod of categories">
       <a class="dropdown-item">{{prod.name}}</a>
     </div>
   </div>

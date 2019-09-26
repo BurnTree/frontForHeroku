@@ -19,7 +19,8 @@ import {subscribeTo} from 'rxjs/internal-compatibility';
 })
 export class HeaderComponent implements OnInit {
 
-  products: Item[];
+  itProduct: Item[];
+  categories: Category[];
   public txtsea: string;
   public lang: string;
   sub: Subscription;
@@ -33,10 +34,10 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.itemService.getForNav().subscribe((cat: Category[]) => {
-    //     this.products = this.conv.catsInItems(cat);
-    //   }
-    // );
+    this.itemService.getForNav().subscribe((cat: Category[]) => {
+      this.categories = cat;
+      }
+    );
     this.lang = this.routeService.getLanguage(this.activatedRoute);
     console.log('wtf ' + this.lang);
   }
