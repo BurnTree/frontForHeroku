@@ -39,7 +39,18 @@ export class CategoryService {
   }
 
   public getCtgById(id: number): Observable<Category> {
-    console.log('ctg: ' + id);
     return this.http.get<Category>(this.global.backend + '/api/category/' + id);
+  }
+
+  public saveCtg(ctg: Category): Observable<Category> {
+    return this.http.post<Category>(this.global.backend + '/api/category/add', ctg);
+  }
+
+  public update(ctg: Category): Observable<Category> {
+    return this.http.put<Category>(this.global.backend + '/api/category/change', ctg);
+  }
+
+  public delete(id: number) {
+    this.http.delete(this.global.backend + '/api/category/delete/' + id).subscribe();
   }
 }

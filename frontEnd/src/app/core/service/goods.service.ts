@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {Globals} from '../models/global';
 import {Injectable} from '@angular/core';
+import {Title} from '../models/title';
 
 @Injectable({
   providedIn: 'root'
@@ -33,5 +34,29 @@ export class GoodsService {
 
   public getImage(id: number): Observable<any> {
     return this.http.get<any>(this.global.backend + 'api/goods/' + id + '/image');
+  }
+
+  public getSource(): Observable<any> {
+    return this.http.get<any>(this.global.backend + 'api/admin/source');
+  }
+
+  public saveGoods(goods: Goods): Observable<Goods> {
+    return this.http.post<Goods>(this.global.backend + '/api/goods/add', goods);
+  }
+
+  public update(goods: Goods): Observable<Goods> {
+    return this.http.put<Goods>(this.global.backend + '/api/goods/change', goods);
+  }
+
+  public delete(id: number) {
+    this.http.delete(this.global.backend + '/api/goods/delete/' + id).subscribe();
+  }
+
+  public saveData(table: DataGoods[]): Observable<DataGoods[]> {
+    return this.http.post<DataGoods[]>(this.global.backend + '/api/goods/addData', table);
+  }
+
+  public updateData(table: DataGoods[]): Observable<DataGoods[]> {
+    return this.http.put<DataGoods[]>(this.global.backend + '/api/goods/changeData', table);
   }
 }

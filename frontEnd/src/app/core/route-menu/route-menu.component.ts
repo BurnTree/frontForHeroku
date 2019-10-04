@@ -14,6 +14,8 @@ export class RouteMenuComponent implements OnInit {
   @Input()
   public routeMenu: RouteMenu[] = [];
 
+  path = '';
+
   constructor(private routeService: LocalRouteService,
               private activatedRoute: ActivatedRoute) { }
 

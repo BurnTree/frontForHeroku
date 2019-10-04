@@ -28,4 +28,20 @@ public class TitleServiceImpl implements TitleService {
     public Optional<Title> getById(long id) {
         return titleRepository.findById(id);
     }
+
+    @Override
+    public Title addTitle(Title ttl) {
+        Title newTtl = titleRepository.save(ttl);
+        return newTtl;
+    }
+
+    @Override
+    public Title updateTitle(Title ttl) {
+        return titleRepository.save(ttl);
+    }
+
+    @Override
+    public void delete(long id) {
+        titleRepository.deleteById(id);
+    }
 }

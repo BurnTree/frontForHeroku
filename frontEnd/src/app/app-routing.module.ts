@@ -11,6 +11,8 @@ import {ContactComponent} from './modules/contact/contact.component';
 import {CatalogSertificatesComponent} from './modules/sertificates/pages/catalog-sertificates/catalog-sertificates.component';
 import {ItemSertificateComponent} from './modules/sertificates/pages/item-sertificate/item-sertificate.component';
 import {CommunicationComponent} from './modules/item/component/communication/communication.component';
+import {SignupComponent} from './modules/administrator/page/signup/signup.component';
+import {CabinetComponent} from './modules/administrator/page/cabinet/cabinet.component';
 
 const appRoutes: Routes = [
   {path: ':lang/product/:p/:pp/:id', component: ItemComponent, pathMatch: 'full'},
@@ -24,6 +26,8 @@ const appRoutes: Routes = [
   {path: ':lang/sertificates', component: CatalogSertificatesComponent, pathMatch: 'full'},
   {path: ':lang/sertificates/:id', component: ItemSertificateComponent, pathMatch: 'full'},
   {path: ':lang/communication', component: CommunicationComponent, pathMatch: 'full'},
+  {path: ':lang/admin', component: SignupComponent, pathMatch: 'full'},
+  {path: ':lang/admin/cabinet', component: CabinetComponent, pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent, pathMatch: 'full'}
 ];
 

@@ -32,4 +32,18 @@ public class TitleController {
     public Optional<Title> getById(@PathVariable(name = "id") Long id) {
         return titleService.getById(id);
     }
+    @PostMapping(value = "/add")
+    public Title add(@RequestBody Title title){
+        return titleService.addTitle(title);
+    }
+
+    @PutMapping(value = "/change")
+    public Title update(@RequestBody Title title){
+        return titleService.updateTitle(title);
+    }
+
+    @DeleteMapping(value = "/delete/{id}")
+    public void delete(@PathVariable(name = "id") long id) {
+        titleService.delete(id);
+    }
 }

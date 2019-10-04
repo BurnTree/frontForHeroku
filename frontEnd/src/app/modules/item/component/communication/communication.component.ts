@@ -25,11 +25,9 @@ export class CommunicationComponent implements OnInit {
         Validators.pattern('^[0-9]*$')]}),
     gmail: new FormControl('', {validators: [Validators.required,
         Validators.minLength(4),
-        Validators.maxLength(20),
+        Validators.maxLength(80),
         Validators.email]}),
-    comment: new FormControl('', {validators: [Validators.required,
-        Validators.minLength(4),
-        Validators.maxLength(200)]})
+    comment: new FormControl('')
   });
 
   constructor() {

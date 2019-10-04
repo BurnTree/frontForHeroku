@@ -10,8 +10,11 @@ import org.hibernate.validator.constraints.URL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import sun.applet.Main;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 
@@ -61,5 +64,41 @@ public class GoodsController {
         String path = prod.get().getPhoto();
         FileInputStream in = new FileInputStream(imgUrl + path);
         return IOUtils.toByteArray(in);
+    }
+
+    @PostMapping(value = "/add")
+    public Optional<Goods> add(@RequestBody Goods goods){
+        return goodsService.addGoods(goods);
+    }
+
+    @PutMapping(value = "/change")
+    public Optional<Goods> update(@RequestBody Goods goods){
+        return goodsService.updateGoods(goods);
+    }
+
+    @DeleteMapping(value = "/delete/{id}")
+    public void delete(@PathVariable(name = "id") long id) {
+        goodsService.deleteData(goodsService.getTable(id));
+        goodsService.delete(id);
+    }
+
+    @PostMapping(value = "/addData")
+    public Iterable<Maindata>  addData(@RequestBody Iterable<Maindata> maindata){
+        Iterable<Maindata> itData = new ArrayList<Maindata>();
+        for (Maindata da: maindata
+             ) {
+            ((ArrayList<Maindata>) itData).add(goodsService.addData(da));
+        }
+        return itData;
+    }
+
+    @PutMapping(value = "/changeData")
+    public Iterable<Maindata>  updateData(@RequestBody Iterable<Maindata> maindata){
+        return goodsService.updateData(maindata);
+    }
+
+    @DeleteMapping(value = "/deleteData/{id}")
+    public void deleteData(@PathVariable(name = "id") long id) {
+        goodsService.deleteData(goodsService.getTable(id));
     }
 }

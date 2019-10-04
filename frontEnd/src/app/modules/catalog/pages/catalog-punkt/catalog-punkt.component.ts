@@ -49,7 +49,7 @@ export class CatalogPunktComponent implements OnInit {
       console.log('category in item: ' + this.categor);
       this.products = this.conv.catsInItems(this.categor);
     }));
-    this.routeMenu = [{name: 'продукция', url: '/product'}];
+    this.routeMenu = [{name: 'продукция', url: 'product'}];
   }
 
 }

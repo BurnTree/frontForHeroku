@@ -42,8 +42,8 @@ export class CatalogPodPunktComponent implements OnInit {
       this.categoryService.getCtgById(idPunk).subscribe(
         (data: Category) => {
           this.punkt = this.conv.ctgInItem(data);
-          this.routeMenu = [{name: 'продукция', url: '/product'},
-            {name: this.punkt.punkt.toString(), url: this.punkt.punkt.toString()}];
+          this.routeMenu = [{name: 'продукция', url: 'product'},
+            {name: this.punkt.name, url: 'product' +  '/' + this.punkt.punkt.toString()}];
         });
       this.titleService.getTitleByCtg(idPunk).subscribe(
         (ttls: Title[]) => {

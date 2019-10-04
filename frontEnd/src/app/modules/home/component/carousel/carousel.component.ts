@@ -8,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class CarouselComponent implements OnInit {
 
   constructor() { }
-
+  pathImage: string;
 
   ngOnInit() {
+    this.pathImage = 'assets/imag.jpg';
   }
 
 }

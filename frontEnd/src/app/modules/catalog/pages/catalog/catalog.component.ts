@@ -21,7 +21,7 @@ export class CatalogComponent implements OnInit {
 
   products: Item[];
   title: Item;
-  categor: Category[];
+  categor: Category;
   private subscriptions: Subscription[] = [];
 
   routeMenu: RouteMenu[] = [];
@@ -48,15 +48,17 @@ export class CatalogComponent implements OnInit {
         (allGoods: Goods[]) => {
           console.log('goods: ' + allGoods[0].idgoods);
           this.products = this.conv.goodsInItems(allGoods, pp);
-      });
+        });
       this.titleService.getTitleById(pp).subscribe(
         (data: Title) => {
           console.log('p: ' + p + 'pp: ' + pp);
           this.title = this.conv.ttlInItem(data);
           console.log('title id: ' + data.idtitle);
-          this.routeMenu = [{name: 'продукция', url: '/product'},
-            {name: this.title.punkt.toString(), url: this.title.punkt.toString()},
-            {name: this.title.podpunkt.toString(), url: this.title.podpunkt.toString()}];
+          this.categoryService.getCtgById(this.title.podpunkt).subscribe(ctg => {
+            this.routeMenu = [{name: 'продукция', url: 'product'},
+              {name: ctg.name, url: 'product' + '/' + this.title.podpunkt.toString()},
+              {name: this.title.name, url: 'product' + '/' + this.title.podpunkt.toString() + '/' + this.title.punkt.toString()}];
+          });
         });
     });
   }

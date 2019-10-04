@@ -13,3 +13,7 @@ export class DataGoods {
   public value: string;
   public idgoods: number;
 }
+
+export class authToken {
+  public token: string;
+}

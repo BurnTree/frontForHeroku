@@ -15,6 +15,7 @@ import org.json.*;
 
 @Entity
 public class Goods {
+
     private long idgoods;
     private String name;
     private String description;
@@ -27,6 +28,7 @@ public class Goods {
 
     @Id
     @Column(name = "idgoods", nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public long getIdgoods() {
         return idgoods;
     }

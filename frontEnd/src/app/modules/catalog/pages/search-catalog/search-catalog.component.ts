@@ -52,7 +52,7 @@ export class SearchCatalogComponent implements OnInit {
         this.products = this.searchFromTxt(this.allProduct, this.txtSearch);
       });
     });
-    this.routeMenu = [{name: 'поиск', url: '/search'}];
+    this.routeMenu = [{name: 'поиск', url: 'search'}];
   }
 
   searchFromTxt(items: Item[], txt: string): any[] {

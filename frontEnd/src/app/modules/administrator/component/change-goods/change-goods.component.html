@@ -1,0 +1,33 @@
+<form [formGroup]="goodsForm" (ngSubmit)="createNewGoods()">
+  <label class="col-form-label ml-4">Name:</label>
+  <input type="text" class="form-control m-2" size="20" formControlName="name" placeholder="Name">
+  <label class="col-form-label ml-4">Title:</label>
+  <select class="custom-select d-block m-2" id="title" formControlName="title">
+    <option *ngFor="let ttl of titles" value="{{ttl.idtitle}}">{{ttl.name}}</option>
+  </select>
+  <label class="col-form-label ml-4">Image:</label>
+  <input type="text" class="form-control m-2" size="20" formControlName="image" placeholder="Image Name">
+  <label class="col-form-label ml-4">Короткое описание:</label>
+  <input type="text" class="form-control m-2" size="20" formControlName="short" placeholder="Краткое описание">
+  <label class="col-form-label ml-4">Длинное описание:</label>
+  <input type="text" class="form-control m-2" size="20" formControlName="description" placeholder="Общее описание">
+  <div class="border-dark table-bordered" formArrayName="mainData" >
+    <label class="col-form-label ml-4">Данные:</label>
+    <div *ngFor="let ttl of goodsForm.get('mainData').controls;let i = index">
+      <ng-container [formGroupName]="i">
+        <label>
+          <input type="text" class="form-control mx-2 my-0" formControlName="nameData" placeholder="Название">
+        </label>
+        <label>
+          <input type="text" class="form-control mx-2 my-0" formControlName="valueData" placeholder="Значение">
+        </label>
+      </ng-container>
+    </div>
+    <div class="h1 text-center align-items-center">
+      <button type="button" class="btn btn-outline-secondary text-dark" (click)="addMainData()">+</button>
+    </div>
+  </div>
+  <div class="float-right">
+    <button type="submit" class="btn btn-dark m-2">Add</button>
+  </div>
+</form>

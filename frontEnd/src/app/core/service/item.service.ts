@@ -36,10 +36,6 @@ export class ItemService {
     return this.i; // this.http.get<Item>('');
   }
 
-  // getAllItem(): Item[] {
-  //   this.stI = Array();
-  //   return
-  // }
 
   getPunkts(): Item[] {
     const p: Item[] = [{name: 'Дороги', id: 0, punkt: 1, podpunkt: 0, img: ''},
@@ -83,14 +79,13 @@ export class ItemService {
   }
 
   getSertificate(): Sertificate[] {
-    const ser: Sertificate[] = [{id: 1, name: 'Sertificate 1'},
-      {id: 2, name: 'Sertificate 2'},
-      {id: 3, name: 'Sertificate 3'},
-      {id: 4, name: 'Sertificate 4'}];
+    const ser: Sertificate[] = [{id: 1, name: 'Sertificate 1', image: 's1.jpg'},
+      {id: 2, name: 'Sertificate 2', image: 's2.jpg'},
+      {id: 3, name: 'Sertificate 3', image: 's3.jpg'}];
     return ser;
   }
 
   getSert(oId: number): Sertificate {
-    return {id: oId, name: 'Sertif'};
+    return {id: oId, name: 'Sertif', image: 's1.jpg'};
   }
 }

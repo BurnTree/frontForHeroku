@@ -1,0 +1,14 @@
+<div class="h1 text-center">Изменить категорию</div>
+<button class="btn btn-outline-danger float-left m-2" (click)="deleteCategoty()">Удалить</button>
+<button type="button" class="btn btn-info float-right m-2" (click)="refresh()"> Обновить</button>
+<div>
+  <form [formGroup]="categoryForm" (ngSubmit)="createNewCategory()">
+    <label class="col-form-label ml-4">Name:</label>
+    <input type="text" class="form-control m-2" size="20" formControlName="name" placeholder="Name">
+    <label class="col-form-label ml-4">Image:</label>
+    <input type="text" class="form-control m-2" size="20" formControlName="image" placeholder="Image Name">
+    <div class="float-right">
+      <button type="submit" class="btn btn-dark m-2">Изменить</button>
+    </div>
+  </form>
+</div>

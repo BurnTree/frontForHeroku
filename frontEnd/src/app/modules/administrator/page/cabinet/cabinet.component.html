@@ -1,0 +1,46 @@
+<div class="row m-5">
+  <div class="col-md-6 border-right">
+    <div class="row">
+      <div class="col-md-6">
+        <button class="btn btn-outline-secondary my-2 float-left" (click)="logOut()">Выйти</button>
+      </div>
+      <div class="col-md-6">
+        <button class="btn btn-primary my-2 float-right" (click)="refresh()">Обновить</button>
+      </div>
+      <div class="col-md-12">
+        <button class="btn btn-outline-dark my-2 h1 w-100" (click)="theme = 'addGoods'"> Добавить новый товар</button>
+      </div>
+    </div>
+    <div *ngFor="let category of categories">
+      <div class="btn-group dropright row w-50">
+        <div class="col-md-2 btn btn-secondary" (click)="changeCategory(category)">red</div>
+        <div class=" col-md-8 btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+             aria-expanded="false">
+          <div class="">{{category.name}}</div>
+        </div>
+        <div class="dropdown-menu">
+          <div class="" *ngFor="let gods of titles.get(category.idcategory)">
+            <div class="row px-0 mx-0">
+              <div class="col-md-4  btn btn-light" (click)="changeTitle(gods)">red</div>
+              <div class="dropdown-item col-md-8 btn-light btn">{{gods.name}}</div>
+            </div>
+          </div>
+          <div class="h5 w-100 btn btn-light" (click)="(theme='addTtl') && (catForAdd=category.idcategory)">
+            <div class="text-center text-dark">+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="h5 w-25 btn btn-outline-secondary mx-4 my-2" (click)="theme='addCtg'">
+      <div class="text-center text-dark">+</div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <app-add-category *ngIf="theme == 'addCtg'"></app-add-category>
+    <app-add-title [idCtg]="catForAdd" *ngIf="theme == 'addTtl'"></app-add-title>
+    <app-add-goods *ngIf="theme == 'addGoods'"></app-add-goods>
+    <app-change-catalog [category]="chaCtg" *ngIf="theme == 'upCtg'"></app-change-catalog>
+    <app-change-title [myTitle]="chaTtl" *ngIf="theme == 'upTtl'"></app-change-title>
+    <app-change-goods *ngIf="theme == 'upGoods'"></app-change-goods>
+  </div>
+</div>

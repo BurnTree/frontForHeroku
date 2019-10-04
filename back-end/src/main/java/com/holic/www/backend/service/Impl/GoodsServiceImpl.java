@@ -8,6 +8,7 @@ import com.holic.www.backend.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 @Service
 public class GoodsServiceImpl implements GoodsService {
@@ -37,5 +38,37 @@ public class GoodsServiceImpl implements GoodsService {
         return dataRepository.findByIdgoods(id);
     }
 
+    @Override
+    public Optional<Goods> addGoods(Goods goods) {
+        Goods newGoods = goodsRepository.saveAndFlush(goods);
+        goodsRepository.flush();
+        System.out.println("wtf" + newGoods.getIdgoods());
+        return Optional.of(newGoods);
+    }
+
+    @Override
+    public Optional<Goods> updateGoods(Goods goods) {
+        return Optional.of(goodsRepository.saveAndFlush(goods));
+    }
+
+    @Override
+    public void delete(long id) {
+        goodsRepository.deleteById(id);
+    }
+
+    @Override
+    public Maindata addData(Maindata maindata) {
+        return dataRepository.save(maindata);
+    }
+
+    @Override
+    public Iterable<Maindata> updateData(Iterable<Maindata> maindata) {
+        return dataRepository.saveAll(maindata);
+    }
+
+    @Override
+    public void deleteData(Iterable<Maindata> maindata) {
+        dataRepository.deleteAll(maindata);
+    }
 
 }

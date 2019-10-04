@@ -1,6 +1,6 @@
 <app-header></app-header>
 <app-route-menu [routeMenu]="routeMenu"></app-route-menu>
-<div class="h1 text-center">Каталог</div>
+<div class="h1 text-center">{{title.name}}</div>
 <div class="row">
   <div *ngFor="let product of products">
     <div class="col">

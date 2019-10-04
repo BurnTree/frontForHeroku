@@ -4,6 +4,6 @@ import com.holic.www.backend.entity.Goods;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 
-public interface GoodsRepository extends CrudRepository<Goods,Long> {
+public interface GoodsRepository extends JpaRepository<Goods,Long> {
     Iterable<Goods> findByIdtitle(long id);
 }
