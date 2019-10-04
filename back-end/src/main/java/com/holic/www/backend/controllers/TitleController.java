@@ -32,6 +32,7 @@ public class TitleController {
     public Optional<Title> getById(@PathVariable(name = "id") Long id) {
         return titleService.getById(id);
     }
+
     @PostMapping(value = "/add")
     public Title add(@RequestBody Title title){
         return titleService.addTitle(title);
